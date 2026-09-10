@@ -10,7 +10,6 @@ let respostas = [];
 let aluno = {};
 let zoomAtual = 100;
 
-// FERRAMENTAS DE ACESSIBILIDADE
 function alternarTema() {
     const escuro = document.body.getAttribute('data-tema') === 'escuro';
     document.body.setAttribute('data-tema', escuro ? 'claro' : 'escuro');
@@ -49,7 +48,6 @@ function falar(texto) {
     }
 }
 
-// LÓGICA DO QUESTIONÁRIO
 function iniciar() {
     const nome = document.getElementById('nome-aluno').value.trim();
     const turma = document.getElementById('turma-aluno').value.trim();
@@ -87,7 +85,6 @@ function responder(resp) {
     atualizarPergunta();
 }
 
-// ATALHOS DE TECLADO
 document.addEventListener('keydown', (e) => {
     const emPergunta = document.getElementById('tela-pergunta').style.display === 'flex';
     if (!emPergunta) return;
@@ -96,7 +93,6 @@ document.addEventListener('keydown', (e) => {
     if (e.key.toLowerCase() === 'n' || e.key === 'ArrowLeft') responder('NÃO');
 });
 
-// EXIBIÇÃO E HISTÓRICO
 function exibirResultado() {
     document.getElementById('tela-pergunta').style.display = 'none';
     document.getElementById('tela-resultado').style.display = 'flex';
@@ -130,7 +126,7 @@ function exibirResultado() {
 function salvarHistorico(qtd) {
     let historico = JSON.parse(localStorage.getItem('historico_acess') || '[]');
     historico.unshift({ ...aluno, qtd });
-    historico = historico.slice(0, 5); // guarda só os últimos 5
+    historico = historico.slice(0, 5);
     localStorage.setItem('historico_acess', JSON.stringify(historico));
     carregarHistorico();
 }
@@ -148,7 +144,7 @@ function carregarHistorico() {
 }
 
 function imprimirRelatorio() {
-    window.print(); // Abre caixa nativa de impressão (onde pode salvar em PDF)
+    window.print();
 }
 
 function reiniciar() {
@@ -160,5 +156,4 @@ function reiniciar() {
     document.getElementById('tela-inicio').style.display = 'flex';
 }
 
-// INICIALIZAÇÃO
 window.onload = carregarHistorico;
