@@ -123,7 +123,6 @@ button {
     left: 0;
 }
 
-/* Esconde botões ao salvar PDF/Imprimir */
 @media print {
     .toolbar, .acoes-finais, .historico { display: none !important; }
     .card { border: none; }
