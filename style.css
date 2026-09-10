@@ -1,1 +1,130 @@
+:root {
+    --bg: #f4f4f9;
+    --card: #ffffff;
+    --texto: #222222;
+    --primaria: #0284c7;
+    --sucesso: #16a34a;
+    --erro: #dc2626;
+    --borda: #cccccc;
+    --zoom: 100%;
+}
 
+[data-tema="escuro"] {
+    --bg: #121826;
+    --card: #1e293b;
+    --texto: #ffffff;
+    --borda: #334155;
+}
+
+body.fonte-adaptada {
+    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', sans-serif;
+    letter-spacing: 0.8px;
+    word-spacing: 2px;
+}
+
+html {
+    font-size: var(--zoom);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--texto);
+    margin: 0;
+    padding: 0;
+}
+
+.toolbar {
+    background: var(--card);
+    border-bottom: 1px solid var(--borda);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.botoes-ferramentas {
+    display: flex;
+    gap: 5px;
+}
+
+main {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--borda);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--borda);
+    border-radius: 5px;
+    background: var(--bg);
+    color: var(--texto);
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    border: 1px solid var(--borda);
+    border-radius: 5px;
+    cursor: pointer;
+    background: var(--card);
+    color: var(--texto);
+    font-weight: bold;
+}
+
+.btn-principal { background: var(--primaria); color: white; border: none; }
+.btn-sim { background: var(--sucesso); color: white; border: none; width: 100%; }
+.btn-nao { background: var(--erro); color: white; border: none; width: 100%; }
+.btn-ouvir { width: 100%; background: var(--bg); }
+
+.botoes-resposta, .acoes-finais {
+    display: flex;
+    gap: 10px;
+}
+
+.progresso {
+    background: var(--bg);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#barra-progresso {
+    background: var(--primaria);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s;
+}
+
+.regua {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 35px;
+    background: rgba(234, 179, 8, 0.2);
+    border-top: 2px solid #eab308;
+    border-bottom: 2px solid #eab308;
+    pointer-events: none;
+    z-index: 9999;
+    left: 0;
+}
+
+/* Esconde botões ao salvar PDF/Imprimir */
+@media print {
+    .toolbar, .acoes-finais, .historico { display: none !important; }
+    .card { border: none; }
+}
