@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessibilidade Escolar</title>
+    <!-- Ligação com o arquivo CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,7 +23,7 @@
     </header>
 
     <main>
-        <!-- IDENTIFICAÇÃO -->
+        <!-- TELA 1: IDENTIFICAÇÃO -->
         <section id="tela-inicio" class="card">
             <h2>Identificação do Aluno</h2>
             <input type="text" id="nome-aluno" placeholder="Nome do Aluno">
@@ -35,7 +36,7 @@
             </div>
         </section>
 
-        <!-- QUESTIONÁRIO -->
+        <!-- TELA 2: QUESTIONÁRIO -->
         <section id="tela-pergunta" class="card" style="display: none;">
             <div class="progresso"><div id="barra-progresso"></div></div>
             <h2 id="texto-pergunta">Pergunta...</h2>
@@ -48,7 +49,7 @@
             </div>
         </section>
 
-        <!-- RELATÓRIO -->
+        <!-- TELA 3: RELATÓRIO -->
         <section id="tela-resultado" class="card" style="display: none;">
             <div id="conteudo-impressao">
                 <h2>Relatório Pedagógico</h2>
@@ -65,6 +66,7 @@
         </section>
     </main>
 
+    <!-- Ligação com o arquivo JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
